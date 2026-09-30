@@ -222,14 +222,21 @@
     var nav = $('#nav');
     if (!nav) return;
 
-    /* solid + auto-hide; stays in its light-on-dark style for the whole hero */
-    var hero = $('.hs');
+    /* solid + auto-hide; switches to its light-on-dark style over any dark section */
+    var darkZones = $$('.hs, .legacy, .digital, .voices, .cta, .foot');
     var last = window.pageYOffset;
+    var overDark = function () {
+      var line = nav.offsetHeight / 2;
+      for (var k = 0; k < darkZones.length; k++) {
+        var r = darkZones[k].getBoundingClientRect();
+        if (r.top <= line && r.bottom >= line) return true;
+      }
+      return false;
+    };
     var onScroll = function () {
       var y = window.pageYOffset;
-      var overHero = hero && y < hero.offsetHeight - nav.offsetHeight;
       nav.classList.toggle('is-solid', y > 40);
-      nav.classList.toggle('is-light', !!overHero);
+      nav.classList.toggle('is-light', overDark());
 
       // ignore sub-pixel jitter so the bar doesn't bounce between states
       var dy = y - last;

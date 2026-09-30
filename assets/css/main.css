@@ -768,6 +768,17 @@ body.is-loading .loader{pointer-events:auto}
   letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap;
 }
 .tl__hint i{color:var(--gold);font-style:normal}
+@media (min-width:861px){
+  .tl{
+    height:100vh;height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    gap:clamp(1.5rem,4vh,3rem);
+    padding-top:var(--nav-h);
+  }
+  .tl__viewport{padding-bottom:0}
+  .tl__hud{width:100%;padding-bottom:0}
+  .tl__card figure{aspect-ratio:auto;height:clamp(8rem,26vh,15rem)}
+}
 
 /* ── 10 Programmes ─────────────────────────────────────────────────────── */
 .prog{padding:var(--sec) 0 clamp(4rem,7vw,8rem)}
