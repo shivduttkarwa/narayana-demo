@@ -222,15 +222,20 @@
     var nav = $('#nav');
     if (!nav) return;
 
-    /* solid + auto-hide; white while it sits over the dark hero */
-    var darkHero = !!$('.hs');
-    var last = 0;
+    /* solid + auto-hide; stays in its light-on-dark style for the whole hero */
+    var hero = $('.hs');
+    var last = window.pageYOffset;
     var onScroll = function () {
       var y = window.pageYOffset;
+      var overHero = hero && y < hero.offsetHeight - nav.offsetHeight;
       nav.classList.toggle('is-solid', y > 40);
-      nav.classList.toggle('is-light', darkHero && y <= 40);
-      if (y > 400 && y > last && !megaOpen) nav.classList.add('is-hidden');
-      else nav.classList.remove('is-hidden');
+      nav.classList.toggle('is-light', !!overHero);
+
+      // ignore sub-pixel jitter so the bar doesn't bounce between states
+      var dy = y - last;
+      if (Math.abs(dy) < 6) return;
+      if (y > 400 && dy > 0 && !megaOpen) nav.classList.add('is-hidden');
+      else if (dy < 0 || y <= 400) nav.classList.remove('is-hidden');
       last = y;
     };
     if (lenis) lenis.on('scroll', onScroll);
@@ -1061,7 +1066,7 @@
 
   function start() {
     var nav = $('#nav');
-    if (nav && $('.hs')) nav.classList.toggle('is-light', window.pageYOffset <= 40);
+    if (nav && $('.hs')) nav.classList.add('is-light');
 
     initLenis();
     var hero = initHeroSlider();

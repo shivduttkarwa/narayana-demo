@@ -408,6 +408,7 @@ body.is-loading .loader{pointer-events:auto}
 .brand__text i{transition:color .4s var(--e-out)}
 .burger{transition:border-color .4s var(--e-out)}
 .burger i{transition:transform .4s var(--e-out),background .4s var(--e-out)}
+.nav.is-light.is-solid .nav__bar{background:rgba(11,15,26,.55);box-shadow:0 1px 0 rgba(255,255,255,.08)}
 .nav.is-light .nav__links > a,.nav.is-light .nav__trigger{color:#fff}
 .nav.is-light .nav__links > a::after{background:var(--gold)}
 .nav.is-light .nav__trigger[aria-expanded="true"]{background:rgba(255,255,255,.12)}
