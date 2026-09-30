@@ -78,6 +78,7 @@
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0;padding:0}
 html{
+  scrollbar-gutter:stable;
   -webkit-text-size-adjust:100%;
   scroll-behavior:auto;
   font-size:100%;
@@ -94,6 +95,7 @@ body{
   font-feature-settings:"ss01" 1,"cv01" 1;
 }
 body.is-loading{overflow:hidden;height:100vh}
+html:has(body.is-loading){background:var(--ink)}
 body.is-locked{overflow:hidden}
 img,svg,video{display:block;max-width:100%}
 img{height:auto;object-fit:cover;background:var(--paper-3)}
