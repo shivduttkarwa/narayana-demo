@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Narayana Schools — Where every dream finds a school that believes in it</title>
+<meta name="description" content="For 47 years Narayana has turned ambition into achievement — from a single classroom in Nellore to 950+ campuses across 23 states. CBSE schools built for academic excellence and holistic growth.">
+<meta name="theme-color" content="#0B0F1A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<noscript>
+  <style>
+    /* No JS: skip straight to the document. */
+    .loader,.grain{display:none!important}
+    body.is-loading{overflow:auto!important;height:auto!important}
+  </style>
+</noscript>
+
+<script>
+  /* Failsafe. If main.js or a CDN never arrives, the preloader must not
+     hold the page hostage. main.js marks the loader [data-handled] so this
+     never fights the real intro. */
+  setTimeout(function () {
+    var l = document.getElementById('loader');
+    if (document.body) document.body.classList.remove('is-loading');
+    if (l && !l.hasAttribute('data-handled') && l.style.display !== 'none') {
+      l.style.transition = 'opacity .6s ease';
+      l.style.opacity = '0';
+      setTimeout(function () { l.style.display = 'none'; }, 600);
+    }
+  }, 8000);
+</script>
+</head>
+
+<body class="is-loading">
+
+<!-- ══════════════════════════════════════════════════════ PRELOADER ══ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__mark">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path class="lm-a" d="M12 52V12l40 40V12" stroke="currentColor" stroke-width="6" stroke-linecap="square"/>
+      </svg>
+    </div>
+    <div class="loader__meta">
+      <span class="loader__word">Narayana</span>
+      <span class="loader__since">Est. 1979</span>
+    </div>
+  </div>
+  <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+  <div class="loader__bar"><span id="loaderBar"></span></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ══════════════════════════════════════════════════════════ NAV ══ -->
+<header class="nav" id="nav">
+  <div class="nav__bar">
+    <a class="brand" href="#hero" aria-label="Narayana Schools — home">
+      <span class="brand__mark">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M12 52V12l40 40V12" stroke="currentColor" stroke-width="7" stroke-linecap="square"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <b>Narayana</b>
+        <i>Schools</i>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#legacy" data-nav>Our Story</a>
+      <button class="nav__trigger" data-mega="academics" aria-expanded="false">Academics<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
+      <a href="#edge" data-nav>The Edge</a>
+      <a href="#digital" data-nav>Digital</a>
+      <a href="#results" data-nav>Results</a>
+      <a href="#locator" data-nav>Campuses</a>
+    </nav>
+
+    <div class="nav__act">
+      <a class="pill pill--ghost" href="tel:18001023344">
+        <span class="pill__dot"></span>1800‑102‑3344
+      </a>
+      <a class="pill pill--solid magnetic" href="#admissions">
+        <span>Enquire</span>
+        <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12L12 2M12 2H4.5M12 2v7.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </div>
+
+  <!-- mega menu -->
+  <div class="mega" id="mega-academics" data-mega-panel="academics" aria-hidden="true">
+    <div class="mega__grid">
+      <div class="mega__col mega__col--lead">
+        <span class="eyebrow">Academics</span>
+        <p class="mega__lead">Four programmes, each built for a distinct stage of a child’s growth — from first crayon to first rank.</p>
+        <a class="link-underline" href="#programmes">Explore the curriculum</a>
+      </div>
+      <a class="mega__item" href="#programmes"><b>eKidz</b><span>Pre‑primary · Ages 3–6</span></a>
+      <a class="mega__item" href="#programmes"><b>eChamps</b><span>Primary · Ages 6–11</span></a>
+      <a class="mega__item" href="#programmes"><b>eTechno</b><span>Middle & Secondary · 11–16</span></a>
+      <a class="mega__item" href="#programmes"><b>Sr. Secondary</b><span>Grades XI–XII · JEE / NEET</span></a>
+      <a class="mega__item" href="#digital"><b>Pedagogy</b><span>Integrated · Concept‑first</span></a>
+      <a class="mega__item" href="#beyond"><b>Beyond Class</b><span>nSports · Disha · Arts</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__inner">
+    <nav class="drawer__nav" aria-label="Mobile">
+      <a href="#legacy"><i>01</i>Our Story</a>
+      <a href="#programmes"><i>02</i>Academics</a>
+      <a href="#edge"><i>03</i>The Narayana Edge</a>
+      <a href="#digital"><i>04</i>Digital Campus</a>
+      <a href="#results"><i>05</i>Results</a>
+      <a href="#beyond"><i>06</i>Beyond the Classroom</a>
+      <a href="#locator"><i>07</i>Find a Campus</a>
+      <a href="#admissions"><i>08</i>Admissions</a>
+    </nav>
+    <div class="drawer__foot">
+      <a href="tel:18001023344">1800‑102‑3344</a>
+      <span>Madhapur, Hyderabad</span>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ═════════════════════════════════════════════════════════ HERO ══ -->
+<section class="hero hs" id="hero" data-slider data-autoplay="7" aria-roledescription="carousel" aria-label="Narayana Schools highlights">
+  <div class="hs__rule" aria-hidden="true"></div>
+
+  <div class="hs__track">
+
+    <article class="hs__slide is-active" data-slide aria-roledescription="slide" aria-label="1 of 3">
+      <div class="hs__media" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1800&q=80&auto=format&fit=crop" alt="" loading="eager" fetchpriority="high" width="1800" height="1200" draggable="false">
+        <div class="hs__shade"></div>
+      </div>
+      <div class="hs__content">
+        <div class="hs__text">
+          <span class="eyebrow eyebrow--dot hs__eyebrow">Since 1979 · 23 States · 950+ Campuses</span>
+          <h1 class="hs__title">
+            <span class="line"><span data-split="chars">Every dream</span></span>
+            <span class="line"><span data-split="chars">deserves a school</span></span>
+            <span class="line"><span data-split="chars" class="ital">that believes in it.</span></span>
+          </h1>
+          <p class="hs__lede">Seven students in a single Nellore classroom. Today, six lakh learners every day. Narayana was built on one stubborn idea — that ambition should never be limited by a postcode.</p>
+          <div class="hs__cta">
+            <a class="btn btn--light magnetic" href="#locator">
+              <span>Find your campus</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#legacy">
+              <span>47 years, in one scroll</span>
+            </a>
+          </div>
+        </div>
+        <div class="hs__stat">
+          <b>6<i>L+</i></b>
+          <span>learners taught<br>every single day</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="hs__slide" data-slide aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true" inert>
+      <div class="hs__media" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=1800&q=80&auto=format&fit=crop" alt="" loading="lazy" width="1800" height="1200" draggable="false">
+        <div class="hs__shade"></div>
+      </div>
+      <div class="hs__content">
+        <div class="hs__text">
+          <span class="eyebrow eyebrow--dot hs__eyebrow">Academics · CBSE · Integrated JEE / NEET</span>
+          <h2 class="hs__title">
+            <span class="line"><span data-split="chars">Concept first.</span></span>
+            <span class="line"><span data-split="chars">The rank</span></span>
+            <span class="line"><span data-split="chars" class="ital">follows.</span></span>
+          </h2>
+          <p class="hs__lede">Four programmes, one integrated pedagogy — the why before the what, from the first crayon in eKidz to the final mock before JEE.</p>
+          <div class="hs__cta">
+            <a class="btn btn--light magnetic" href="#programmes">
+              <span>Explore programmes</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#results">
+              <span>See the scoreboard</span>
+            </a>
+          </div>
+        </div>
+        <div class="hs__stat">
+          <b>499<i>/500</i></b>
+          <span>Riddhi Sharma<br>CBSE Class X, 2026</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="hs__slide" data-slide aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true" inert>
+      <div class="hs__media" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1800&q=80&auto=format&fit=crop" alt="" loading="lazy" width="1800" height="1200" draggable="false">
+        <div class="hs__shade"></div>
+      </div>
+      <div class="hs__content">
+        <div class="hs__text">
+          <span class="eyebrow eyebrow--dot hs__eyebrow">Digital Campus · nLearn · nConnect · Robotics</span>
+          <h2 class="hs__title">
+            <span class="line"><span data-split="chars">A classroom</span></span>
+            <span class="line"><span data-split="chars">that follows</span></span>
+            <span class="line"><span data-split="chars" class="ital">you home.</span></span>
+          </h2>
+          <p class="hs__lede">Smart classrooms that record every lesson, analytics that isolate speed and accuracy, and a parent app that keeps the whole story in one thread.</p>
+          <div class="hs__cta">
+            <a class="btn btn--light magnetic" href="#digital">
+              <span>Tour the digital campus</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#admissions">
+              <span>Enquire now</span>
+            </a>
+          </div>
+        </div>
+        <div class="hs__stat">
+          <b>4<i>platforms</i></b>
+          <span>that carry the classroom<br>home and back</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="hs__edge" aria-hidden="true"></div>
+
+  <div class="hs__count" aria-hidden="true">
+    <span class="hs__count-cur"><b data-hs-cur>01</b></span>
+    <i></i>
+    <span class="hs__count-total">03</span>
+  </div>
+
+  <div class="hs__ui">
+    <a class="scroll-cue" href="#trust" aria-label="Scroll down">
+      <span class="scroll-cue__line"><i></i></span>
+      <span class="scroll-cue__txt">Scroll</span>
+    </a>
+
+    <div class="hs__tabs" aria-label="Slides">
+      <button class="hs__tab is-active" type="button" data-hs-to="0" aria-current="true" aria-label="Slide 1: Our story"><i>01</i><b>Our story</b><span class="hs__bar"><em></em></span></button>
+      <button class="hs__tab" type="button" data-hs-to="1" aria-label="Slide 2: Academics"><i>02</i><b>Academics</b><span class="hs__bar"><em></em></span></button>
+      <button class="hs__tab" type="button" data-hs-to="2" aria-label="Slide 3: Digital campus"><i>03</i><b>Digital campus</b><span class="hs__bar"><em></em></span></button>
+    </div>
+
+    <div class="hs__arrows">
+      <button class="hs__arrow" type="button" data-hs-prev aria-label="Previous slide">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 8H2M7 3L2 8l5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hs__arrow" type="button" data-hs-next aria-label="Next slide">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════ TRUST ══ -->
+<section class="trust" id="trust" aria-label="At a glance">
+  <div class="marquee" data-marquee data-speed="0.6">
+    <div class="marquee__track">
+      <span>CBSE Affiliated</span><i>✦</i>
+      <span>23 States</span><i>✦</i>
+      <span>250+ Cities</span><i>✦</i>
+      <span>950+ Institutions</span><i>✦</i>
+      <span>50,000+ Educators</span><i>✦</i>
+      <span>47 Years of Legacy</span><i>✦</i>
+      <span>JEE · NEET · Olympiad</span><i>✦</i>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════ STATS ══ -->
+<section class="stats" id="stats">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow" data-fade>01 — Scale</span>
+      <h2 class="sec-title" data-split="lines">A network large enough to matter. <em>Local enough to know your child’s name.</em></h2>
+    </header>
+
+    <div class="stats__grid">
+      <!-- The final figure lives in the HTML; JS counts up TO it, so the page
+           is still truthful with scripting off. -->
+      <div class="stat" data-stat>
+        <b class="stat__num"><span class="num" data-count="950" data-dur="2">950</span><i>+</i></b>
+        <span class="stat__lbl">Schools, junior colleges<br>& coaching centres</span>
+      </div>
+      <div class="stat" data-stat>
+        <b class="stat__num"><span class="num" data-count="23" data-dur="1.6">23</span></b>
+        <span class="stat__lbl">Indian states<br>with a Narayana campus</span>
+      </div>
+      <div class="stat" data-stat>
+        <b class="stat__num"><span class="num" data-count="250" data-dur="1.8">250</span><i>+</i></b>
+        <span class="stat__lbl">Cities, from metros<br>to district towns</span>
+      </div>
+      <div class="stat" data-stat>
+        <b class="stat__num"><span class="num" data-count="50" data-dur="1.8">50</span><i>k+</i></b>
+        <span class="stat__lbl">Teachers & staff<br>in the fraternity</span>
+      </div>
+      <div class="stat" data-stat>
+        <b class="stat__num"><span class="num" data-count="6" data-dur="1.4">6</span><i>L+</i></b>
+        <span class="stat__lbl">Learners taught<br>every single day</span>
+      </div>
+      <div class="stat" data-stat>
+        <b class="stat__num"><span class="num" data-count="47" data-dur="2">47</span></b>
+        <span class="stat__lbl">Years since the first<br>classroom in Nellore</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ LEGACY ══ -->
+<section class="legacy" id="legacy">
+  <div class="legacy__intro wrap">
+    <span class="eyebrow" data-fade>02 — Legacy</span>
+    <h2 class="sec-title sec-title--xl" data-split="lines">From seven students <em>to six hundred thousand.</em></h2>
+    <p class="sec-lede" data-split="lines">In 1979, Dr. P. Narayana opened a door in Nellore and seven students walked through it. Everything since has been an argument for what happens when you refuse to lower the bar.</p>
+  </div>
+
+  <div class="tl" data-timeline>
+    <div class="tl__viewport">
+      <div class="tl__track">
+
+        <article class="tl__card">
+          <span class="tl__yr">1979</span>
+          <h3>One room. Seven students.</h3>
+          <p>Dr. P. Narayana, then a part‑time lecturer, opens a coaching centre in Nellore, Andhra Pradesh. The register has seven names on it.</p>
+          <figure><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=75&auto=format&fit=crop" alt="An empty classroom with rows of desks" loading="lazy"></figure>
+        </article>
+
+        <article class="tl__card">
+          <span class="tl__yr">1990s</span>
+          <h3>Junior colleges arrive.</h3>
+          <p>The model proves itself across Andhra Pradesh. Junior colleges follow the coaching centres, and the integrated method — board syllabus plus competitive prep — takes shape.</p>
+          <figure><img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=75&auto=format&fit=crop" alt="A university campus building on a green lawn" loading="lazy"></figure>
+        </article>
+
+        <article class="tl__card">
+          <span class="tl__yr">2000s</span>
+          <h3>A national reputation.</h3>
+          <p>Narayana becomes a household name for JEE and NEET preparation. Students from across India relocate to sit in its classrooms.</p>
+          <figure><img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&q=75&auto=format&fit=crop" alt="A hand writing a physics integral on a whiteboard" loading="lazy"></figure>
+        </article>
+
+        <article class="tl__card">
+          <span class="tl__yr">2010s</span>
+          <h3>Schools, not just results.</h3>
+          <p>The CBSE school network expands to 23 states. eKidz, eChamps and eTechno are authored — a curriculum that grows with the child rather than the exam calendar.</p>
+          <figure><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=75&auto=format&fit=crop" alt="A classroom of students with their teacher" loading="lazy"></figure>
+        </article>
+
+        <article class="tl__card">
+          <span class="tl__yr">2020</span>
+          <h3>The digital leap.</h3>
+          <p>nLearn and nConnect go live. Lessons, tests, analytics and parent communication move onto one platform — and stay there long after the classrooms reopen.</p>
+          <figure><img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?w=800&q=75&auto=format&fit=crop" alt="A student learning on a laptop with headphones" loading="lazy"></figure>
+        </article>
+
+        <article class="tl__card">
+          <span class="tl__yr">2025</span>
+          <h3>Fifty‑two new campuses.</h3>
+          <p>One of the largest single‑year expansions in Indian schooling: 52 new campuses opened across 12 states, most of them in cities that had never had a school of this standard.</p>
+          <figure><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=75&auto=format&fit=crop" alt="Sweeping curved shelves in a grand library" loading="lazy"></figure>
+        </article>
+
+        <article class="tl__card tl__card--end">
+          <span class="tl__yr">Today</span>
+          <h3>950+ institutions. One promise.</h3>
+          <p>Asia’s largest education network still runs on the sentence it started with: <em>your dreams are our dreams.</em></p>
+          <a class="btn btn--primary magnetic" href="#programmes"><span>See the programmes</span></a>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="tl__hud">
+      <div class="tl__prog"><span data-tl-bar></span></div>
+      <div class="tl__hint"><i>Scroll</i> to travel through 47 years</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ PROGRAMMES ══ -->
+<section class="prog" id="programmes">
+  <div class="wrap">
+    <header class="sec-head sec-head--split">
+      <div>
+        <span class="eyebrow" data-fade>03 — Academics</span>
+        <h2 class="sec-title" data-split="lines">Four programmes. <em>One continuous arc.</em></h2>
+      </div>
+      <p class="sec-note" data-split="lines">A child at five and a child at seventeen need entirely different things from a school. So we stopped pretending one curriculum could serve both.</p>
+    </header>
+  </div>
+
+  <div class="prog__stack" data-prog>
+
+    <article class="pcard" data-pcard style="--pc-i:0">
+      <div class="pcard__in">
+        <div class="pcard__txt">
+          <span class="pcard__idx">01 / eKidz</span>
+          <h3 class="pcard__ttl">A joyful <em>start.</em></h3>
+          <p class="pcard__age">Pre‑primary · Ages 3–6</p>
+          <p class="pcard__desc">Child‑centric by design. Safe, hygienic, colour‑soaked spaces where the first years of school feel like play — because at this age, play <em>is</em> the syllabus.</p>
+          <ul class="pcard__list">
+            <li>Play‑led, activity‑first learning</li>
+            <li>Safe &amp; hygienic dedicated spaces</li>
+            <li>Motor, language &amp; social milestones</li>
+          </ul>
+        </div>
+        <div class="pcard__img"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=1100&q=80&auto=format&fit=crop" alt="Young children at an activity table" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="pcard" data-pcard style="--pc-i:1">
+      <div class="pcard__in">
+        <div class="pcard__txt">
+          <span class="pcard__idx">02 / eChamps</span>
+          <h3 class="pcard__ttl">Curiosity, <em>built to last.</em></h3>
+          <p class="pcard__age">Primary · Ages 6–11</p>
+          <p class="pcard__desc">The foundation years. Experiential and activity‑based, with hands‑on projects and tech‑enabled lessons that build conceptual understanding rather than recall.</p>
+          <ul class="pcard__list">
+            <li>Experiential, concept‑first method</li>
+            <li>Hands‑on projects &amp; investigations</li>
+            <li>Tech‑enabled classroom lessons</li>
+          </ul>
+        </div>
+        <div class="pcard__img"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1100&q=80&auto=format&fit=crop" alt="A primary classroom with children and a teacher" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="pcard" data-pcard style="--pc-i:2">
+      <div class="pcard__in">
+        <div class="pcard__txt">
+          <span class="pcard__idx">03 / eTechno</span>
+          <h3 class="pcard__ttl">Rigour, <em>without the fear.</em></h3>
+          <p class="pcard__age">Middle &amp; Secondary · Ages 11–16</p>
+          <p class="pcard__desc">CBSE depth kept fully intact, with link concepts woven in to lay real IIT‑JEE and Olympiad groundwork. Academic rigour, mental wellness and competitive exposure held in balance.</p>
+          <ul class="pcard__list">
+            <li>CBSE + link concepts, integrated</li>
+            <li>Olympiad &amp; JEE foundation track</li>
+            <li>Wellness built into the timetable</li>
+          </ul>
+        </div>
+        <div class="pcard__img"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1100&q=80&auto=format&fit=crop" alt="Students working at computers in a lab" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="pcard" data-pcard style="--pc-i:3">
+      <div class="pcard__in">
+        <div class="pcard__txt">
+          <span class="pcard__idx">04 / Sr. Secondary</span>
+          <h3 class="pcard__ttl">The <em>launch</em> years.</h3>
+          <p class="pcard__age">Grades XI–XII · JEE · NEET · CA · Civil Services</p>
+          <p class="pcard__desc">Where four decades of competitive‑exam craft become a daily routine: micro‑schedules, weekly assessment, and a mentor who knows exactly which chapter is costing you marks.</p>
+          <ul class="pcard__list">
+            <li>Career streams: Engineering, Medical, CA, IAS</li>
+            <li>Micro‑schedules &amp; weekly assessment</li>
+            <li>One dedicated mentor per student</li>
+          </ul>
+        </div>
+        <div class="pcard__img"><img src="https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?w=1100&q=80&auto=format&fit=crop" alt="A student solving a problem at the whiteboard" loading="lazy"></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════ EDGE ══ -->
+<section class="edge" id="edge">
+  <div class="wrap edge__wrap">
+    <div class="edge__sticky">
+      <span class="eyebrow" data-fade>04 — The Narayana Edge</span>
+      <h2 class="sec-title" data-split="lines">Seven things <em>we refuse to leave to chance.</em></h2>
+      <div class="edge__viz">
+        <div class="edge__imgs">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="0" class="is-on" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="1" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="2" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="3" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="4" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="5" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="" data-edge-img="6" loading="lazy">
+        </div>
+        <span class="edge__count"><b data-edge-n>01</b> / 07</span>
+      </div>
+    </div>
+
+    <ol class="edge__list">
+      <li class="edge__item" data-edge="0">
+        <span class="edge__n">01</span>
+        <h3>Integrated Curriculum</h3>
+        <p>CBSE, state board and competitive‑exam syllabi are not taught as three separate things. They are authored into one sequence, so a concept learned for the board exam is the same concept that answers a JEE question.</p>
+      </li>
+      <li class="edge__item" data-edge="1">
+        <span class="edge__n">02</span>
+        <h3>Age‑Appropriate Programmes</h3>
+        <p>eKidz, eChamps, eTechno and Senior Secondary — four distinct programmes, each matched to a developmental stage rather than a convenient grade band.</p>
+      </li>
+      <li class="edge__item" data-edge="2">
+        <span class="edge__n">03</span>
+        <h3>Well‑Planned Microschedules</h3>
+        <p>Every subject is broken into micro‑schedules that pace comprehension concept by concept. Nobody is asked to move on before the ground underneath them is solid.</p>
+      </li>
+      <li class="edge__item" data-edge="3">
+        <span class="edge__n">04</span>
+        <h3>Pioneering R&amp;D Team</h3>
+        <p>A full‑time academic research team authors personalised study plans from pre‑primary through higher secondary, and rewrites them as boards and entrance patterns shift.</p>
+      </li>
+      <li class="edge__item" data-edge="4">
+        <span class="edge__n">05</span>
+        <h3>Adoption Calling</h3>
+        <p>One dedicated mentor per student, who calls the student and the parents every two weeks — not to report marks, but to find the problem before it becomes a pattern.</p>
+      </li>
+      <li class="edge__item" data-edge="5">
+        <span class="edge__n">06</span>
+        <h3>Tech‑Enabled Framework</h3>
+        <p>nLearn, digital classrooms and performance analytics that make progress visible — to the teacher, to the student, and to the family at home.</p>
+      </li>
+      <li class="edge__item" data-edge="6">
+        <span class="edge__n">07</span>
+        <h3>Our Fraternity</h3>
+        <p>50,000+ teachers and staff. The word we use internally is family, and the Adoption Calling programme is what stops that from being a poster on a wall.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ DIGITAL ══ -->
+<section class="digital" id="digital">
+  <div class="wrap">
+    <header class="sec-head sec-head--center">
+      <span class="eyebrow" data-fade>05 — Digital Campus</span>
+      <h2 class="sec-title" data-split="lines">The school <em>doesn’t close at 3pm.</em></h2>
+      <p class="sec-lede" data-split="lines">Four platforms that carry the classroom home — and carry the home back into the classroom.</p>
+    </header>
+
+    <div class="dig__grid">
+      <article class="dig dig--wide" data-tilt>
+        <div class="dig__head"><span class="dig__tag">Platform</span><h3>nLearn</h3></div>
+        <p>Question‑led practice built around four loops — <b>Learn</b> with video tutorials and concept cards, <b>Test</b> with timed weekend mocks, <b>Practice</b> with customised solution sets, and <b>Performance</b> analytics that isolate speed, accuracy and rank.</p>
+        <div class="dig__ui">
+          <div class="dig__ui-row"><span>Physics · Rotational Motion</span><b>92%</b></div>
+          <div class="dig__ui-row"><span>Chemistry · Mole Concept</span><b>88%</b></div>
+          <div class="dig__ui-row dig__ui-row--warn"><span>Maths · Definite Integrals</span><b>61%</b></div>
+          <div class="dig__ui-bars"><i style="--h:.34"></i><i style="--h:.52"></i><i style="--h:.41"></i><i style="--h:.63"></i><i style="--h:.55"></i><i style="--h:.72"></i><i style="--h:.6"></i><i style="--h:.81"></i><i style="--h:.68"></i><i style="--h:.9"></i><i style="--h:.79"></i><i style="--h:1"></i></div>
+        </div>
+      </article>
+
+      <article class="dig" data-tilt>
+        <div class="dig__head"><span class="dig__tag">App</span><h3>nConnect</h3></div>
+        <p>An in‑house app for seamless parent–school communication. Attendance, assessments, fees, circulars and mentor notes in one thread.</p>
+      </article>
+
+      <article class="dig" data-tilt>
+        <div class="dig__head"><span class="dig__tag">Lab</span><h3>Robotics</h3></div>
+        <p>Build, break, debug, repeat. Robotics labs where abstract STEM turns into something a child can hold in their hands.</p>
+      </article>
+
+      <article class="dig dig--img" data-tilt>
+        <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=900&q=80&auto=format&fit=crop" alt="A student studying at a laptop" loading="lazy">
+        <div class="dig__over"><span class="dig__tag">Classroom</span><h3>Digital Classroom</h3><p>Every room a smart room — visual, interactive, and recorded so a missed lesson is never a lost one.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ RESULTS ══ -->
+<section class="results" id="results">
+  <div class="wrap">
+    <header class="sec-head sec-head--split">
+      <div>
+        <span class="eyebrow" data-fade>06 — Results 2026</span>
+        <h2 class="sec-title" data-split="lines">The scoreboard, <em>unedited.</em></h2>
+      </div>
+      <p class="sec-note" data-split="lines">CBSE Class X and XII, 2026. Real names, real marks — the outcome of an ordinary Tuesday repeated a few hundred times.</p>
+    </header>
+  </div>
+
+  <div class="marquee marquee--cards" data-marquee data-speed="0.35" data-reverse>
+    <div class="marquee__track">
+      <div class="topper"><b>499<i>/500</i></b><span class="topper__nm">Riddhi Sharma</span><span class="topper__ex">CBSE — X</span></div>
+      <div class="topper"><b>498<i>/500</i></b><span class="topper__nm">B. Sanjana Reddy</span><span class="topper__ex">CBSE — X</span></div>
+      <div class="topper"><b>497<i>/500</i></b><span class="topper__nm">P. Nithish Raaj</span><span class="topper__ex">CBSE — X</span></div>
+      <div class="topper"><b>497<i>/500</i></b><span class="topper__nm">Lathika Ravichandran</span><span class="topper__ex">CBSE — X</span></div>
+      <div class="topper"><b>496<i>/500</i></b><span class="topper__nm">Vinuvarsini</span><span class="topper__ex">CBSE — X</span></div>
+      <div class="topper"><b>494<i>/500</i></b><span class="topper__nm">Bhumija M</span><span class="topper__ex">CBSE — XII</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <figure class="quote">
+      <blockquote data-split="lines">“The structured curriculum and constant support at Narayana helped me stay focused throughout the year. Regular tests, detailed feedback, and dedicated teachers made a huge difference.”</blockquote>
+      <figcaption>
+        <span class="quote__av"><img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?w=200&q=80&auto=format&fit=crop" alt="" loading="lazy"></span>
+        <span><b>Riddhi Sharma</b><i>499 / 500 · CBSE Class X, 2026</i></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ BEYOND ══ -->
+<section class="beyond" id="beyond">
+  <div class="wrap">
+    <header class="sec-head">
+      <span class="eyebrow" data-fade>07 — Beyond the Classroom</span>
+      <h2 class="sec-title" data-split="lines">Marks are the evidence. <em>They were never the point.</em></h2>
+    </header>
+
+    <div class="by__grid">
+      <article class="by by--tall" data-parallax-in>
+        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=900&q=80&auto=format&fit=crop" alt="A colourful 'Love to Learn' mural" loading="lazy">
+        <div class="by__cap"><span class="dig__tag">nSports</span><h3>An age‑appropriate sports programme</h3><p>Structured across every year group, for physical well‑being and — just as deliberately — for the break from academics that makes the academics work.</p></div>
+      </article>
+
+      <article class="by" data-parallax-in>
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=900&q=80&auto=format&fit=crop" alt="Students collaborating around a table" loading="lazy">
+        <div class="by__cap"><span class="dig__tag">Disha</span><h3>Mental wellness counselling</h3><p>Trained counsellors on campus to counter negativity and give timely guidance — before a hard week becomes a hard year.</p></div>
+      </article>
+
+      <article class="by" data-parallax-in>
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="Teenagers working together on laptops" loading="lazy">
+        <div class="by__cap"><span class="dig__tag">Soft Skills</span><h3>Confidence &amp; communication</h3><p>A dedicated programme in public speaking, collaboration and personality development — the part of the CV no board exam grades.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ VOICES ══ -->
+<section class="voices" id="voices">
+  <div class="wrap">
+    <p class="voices__big" data-highlight>Our founder started with a sentence, not a business plan: <mark>every child deserves the same standard of teaching, whether their family can afford a metro or not.</mark> Forty‑seven years and 950 campuses later, it is still the only KPI that matters.</p>
+    <div class="voices__sig">
+      <span class="voices__line"></span>
+      <div><b>Dr. P. Narayana</b><i>Founder, Narayana Educational Institutions · Est. 1979</i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ LOCATOR ══ -->
+<section class="loc" id="locator">
+  <div class="wrap loc__wrap">
+    <div class="loc__l">
+      <span class="eyebrow" data-fade>08 — Find your campus</span>
+      <h2 class="sec-title" data-split="lines">There is very likely <em>one near you.</em></h2>
+      <p class="sec-lede" data-split="lines">250+ cities across 23 states. Tell us where you are and we will point you at the right campus, the right programme and the right person to speak to.</p>
+
+      <form class="finder" onsubmit="return false;">
+        <div class="finder__row">
+          <label class="fld">
+            <span>Board</span>
+            <select><option>CBSE</option><option>State Board (SSC)</option></select>
+          </label>
+          <label class="fld">
+            <span>State</span>
+            <select>
+              <option>Telangana</option><option>Andhra Pradesh</option><option>Karnataka</option>
+              <option>Tamil Nadu</option><option>Maharashtra</option><option>West Bengal</option>
+              <option>Uttar Pradesh</option><option>Madhya Pradesh</option><option>Rajasthan</option>
+              <option>Punjab</option><option>Haryana</option><option>Gujarat</option>
+              <option>Odisha</option><option>Assam</option><option>Chhattisgarh</option>
+            </select>
+          </label>
+        </div>
+        <div class="finder__row">
+          <label class="fld">
+            <span>City</span>
+            <select><option>Hyderabad</option><option>Bengaluru</option><option>Chennai</option><option>Pune</option><option>Mumbai</option><option>Kolkata</option><option>Delhi NCR</option><option>Lucknow</option></select>
+          </label>
+          <label class="fld">
+            <span>Programme</span>
+            <select><option>eKidz · Ages 3–6</option><option>eChamps · Ages 6–11</option><option>eTechno · Ages 11–16</option><option>Sr. Secondary · XI–XII</option></select>
+          </label>
+        </div>
+        <button class="btn btn--primary btn--block magnetic">
+          <span>Show me campuses</span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="loc__r">
+      <div class="loc__map" data-map>
+        <!-- Abstract network diagram, not a geographic map: city nodes wired
+             together to show reach. Positions are indicative only. -->
+        <svg class="loc__web" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="none">
+          <g fill="none" stroke="currentColor" stroke-width=".28" stroke-linecap="round">
+            <line pathLength="1" x1="34" y1="16" x2="46" y2="27"/>
+            <line pathLength="1" x1="46" y1="27" x2="66" y2="44"/>
+            <line pathLength="1" x1="66" y1="44" x2="76" y2="30"/>
+            <line pathLength="1" x1="34" y1="16" x2="18" y2="39"/>
+            <line pathLength="1" x1="46" y1="27" x2="18" y2="39"/>
+            <line pathLength="1" x1="18" y1="39" x2="22" y2="56"/>
+            <line pathLength="1" x1="22" y1="56" x2="28" y2="60"/>
+            <line pathLength="1" x1="28" y1="60" x2="46" y2="66"/>
+            <line pathLength="1" x1="46" y1="66" x2="66" y2="44"/>
+            <line pathLength="1" x1="46" y1="66" x2="40" y2="78"/>
+            <line pathLength="1" x1="40" y1="78" x2="49" y2="86"/>
+            <line pathLength="1" x1="46" y1="66" x2="49" y2="86"/>
+          </g>
+        </svg>
+        <span class="pin" style="--x:34%;--y:16%"><i></i>Delhi NCR</span>
+        <span class="pin" style="--x:46%;--y:27%"><i></i>Lucknow</span>
+        <span class="pin" style="--x:76%;--y:30%"><i></i>Guwahati</span>
+        <span class="pin" style="--x:18%;--y:39%"><i></i>Ahmedabad</span>
+        <span class="pin" style="--x:66%;--y:44%"><i></i>Kolkata</span>
+        <span class="pin" style="--x:22%;--y:56%"><i></i>Mumbai</span>
+        <span class="pin" style="--x:28%;--y:60%"><i></i>Pune</span>
+        <span class="pin" style="--x:46%;--y:66%"><i></i>Hyderabad</span>
+        <span class="pin" style="--x:40%;--y:78%"><i></i>Bengaluru</span>
+        <span class="pin" style="--x:49%;--y:86%"><i></i>Chennai</span>
+        <span class="loc__legend">Campus network · indicative</span>
+      </div>
+      <div class="loc__note"><b>Can’t find your city?</b> We opened 52 new campuses across 12 states last year — call <a href="tel:18001023344">1800‑102‑3344</a> and ask what’s coming.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ ADMISSIONS ══ -->
+<section class="cta" id="admissions">
+  <div class="cta__bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1800&q=80&auto=format&fit=crop" alt="" loading="lazy" data-parallax="-14">
+  </div>
+  <div class="wrap cta__wrap">
+    <span class="eyebrow eyebrow--light" data-fade>Admissions open · 2026–27</span>
+    <h2 class="cta__ttl">
+      <span class="line"><span data-split="chars">Your dreams</span></span>
+      <span class="line"><span data-split="chars" class="ital">are our dreams.</span></span>
+    </h2>
+    <p class="cta__lede" data-split="lines">Book a campus visit, sit in on a live class, and meet the mentor who would be calling you every fortnight.</p>
+    <div class="cta__acts">
+      <a class="btn btn--light btn--lg magnetic" href="#"><span>Start an enquiry</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn--outline btn--lg" href="tel:18001023344"><span>1800‑102‑3344</span></a>
+    </div>
+    <div class="cta__meta">
+      <div><b>NSAT STAR</b><span>Scholarship test — up to 100% tuition</span></div>
+      <div><b>Campus visit</b><span>Any working day, 9am–4pm</span></div>
+      <div><b>Response</b><span>Within one working day</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER ══ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <a class="brand brand--lg" href="#hero">
+          <span class="brand__mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 52V12l40 40V12" stroke="currentColor" stroke-width="7" stroke-linecap="square"/></svg></span>
+          <span class="brand__text"><b>Narayana</b><i>Schools</i></span>
+        </a>
+        <p>10th Floor, Melange Towers, Sy No. 80 to 84,<br>Patrika Nagar, Madhapur, Hyderabad,<br>Telangana — 500081</p>
+        <a class="link-underline" href="tel:18001023344">1800‑102‑3344</a>
+      </div>
+
+      <nav class="foot__cols" aria-label="Footer">
+        <div><h4>Academics</h4>
+          <a href="#programmes">eKidz</a><a href="#programmes">eChamps</a><a href="#programmes">eTechno</a><a href="#programmes">Sr. Secondary</a><a href="#edge">Pedagogy</a>
+        </div>
+        <div><h4>School</h4>
+          <a href="#legacy">Our Story</a><a href="#edge">Why Narayana</a><a href="#results">Accolades</a><a href="#voices">Management</a><a href="#beyond">nSports</a>
+        </div>
+        <div><h4>Digital</h4>
+          <a href="#digital">nLearn</a><a href="#digital">nConnect</a><a href="#digital">Robotics</a><a href="#digital">Digital Classroom</a><a href="#beyond">Disha</a>
+        </div>
+        <div><h4>Admissions</h4>
+          <a href="#admissions">Enquiry Form</a><a href="#admissions">Online Admission</a><a href="#admissions">Fee Payment</a><a href="#locator">Find a School</a><a href="#admissions">Scholarships</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="foot__word" aria-hidden="true"><span data-foot-word>NARAYANA</span></div>
+
+    <div class="foot__base">
+      <span>© 2026 Narayana Educational Institutions. All rights reserved.</span>
+      <nav class="foot__legal" aria-label="Legal">
+        <a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Refund Policy</a><a href="#">Careers</a>
+      </nav>
+      <div class="foot__soc">
+        <a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="X">X</a><a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
