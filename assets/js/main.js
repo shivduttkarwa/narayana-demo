@@ -140,7 +140,6 @@
     if (REDUCED || !HAS_GSAP) { onReveal(); finishAll(); return; }
 
     var ink   = $('.loader__layer--ink', loader);
-    var gold  = $('.loader__layer--gold', loader);
     var lines = $$('.loader__word b', loader);
     var state = { v: 0 };
     var finished = false;
@@ -167,11 +166,10 @@
     // hero intro fires mid-wipe so the reveal and the entrance read as one move
     function out() {
       var tl = gsap.timeline({ onComplete: finishAll });
-      tl.to(lines, { yPercent: -110, duration: 0.6, ease: 'power3.in', stagger: 0.06 }, 0)
-        .to('.loader__mark, .loader__top > *, .loader__foot', { autoAlpha: 0, y: -12, duration: 0.5, ease: 'power2.in', stagger: 0.03 }, 0)
-        .to(ink, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'expo.inOut' }, 0.45)
-        .to(gold, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'expo.inOut' }, 0.54)
-        .call(onReveal, null, 0.8);
+      tl.to(lines, { yPercent: -110, duration: 0.55, ease: 'power3.in', stagger: 0.05 }, 0)
+        .to('.loader__mark, .loader__top > *, .loader__foot', { autoAlpha: 0, duration: 0.35, ease: 'power2.in' }, 0)
+        .to(ink, { yPercent: -100, duration: 1.2, ease: 'expo.inOut' }, 0.3)
+        .call(onReveal, null, 0.5);
     }
 
     // let the counter play out even on an instant load, but never hang past 5s

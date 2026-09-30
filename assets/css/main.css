@@ -235,8 +235,7 @@ html.lenis,html.lenis body{height:auto}
 /* ── 04 Loader, grain ──────────────────────────────────────────── */
 .loader{position:fixed;inset:0;z-index:9000;pointer-events:none}
 body.is-loading .loader{pointer-events:auto}
-.loader__layer{position:absolute;inset:0;will-change:clip-path}
-.loader__layer--gold{background:var(--gold)}
+.loader__layer{position:absolute;inset:0;will-change:transform}
 .loader__layer--ink{
   background:var(--ink);color:#fff;
   display:grid;grid-template-rows:auto 1fr auto;
