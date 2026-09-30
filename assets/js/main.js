@@ -652,14 +652,93 @@
       });
     });
 
-    // stat rows rise in
-    $$('[data-stat]').forEach(function (el, i) {
-      if (REDUCED) return;
-      gsap.from(el, {
-        y: 40, autoAlpha: 0, duration: 1, ease: EASE, delay: (i % 3) * 0.06,
-        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+  }
+
+  /* ═════════════════════════════════════════════════════ 09b · stats bento ══ */
+  function initStats() {
+    var bento = $('[data-bento]');
+    if (!bento) return;
+    var cards = $$('[data-bx]', bento);
+
+    // dot field: each dot a campus, a few glowing gold
+    var field = $('[data-dots]', bento), dots = [];
+    if (field) {
+      var small = window.innerWidth < 600, dot = small ? 9 : 11, gap = small ? 8 : 9;
+      var cols = Math.max(8, Math.floor((field.clientWidth + gap) / (dot + gap)));
+      var rows = small ? 7 : 9;
+      field.style.setProperty('--cols', cols);
+      field.style.setProperty('--dot', dot + 'px');
+      field.style.setProperty('--gap', gap + 'px');
+      for (var d = 0; d < cols * rows; d++) {
+        var i = document.createElement('i');
+        var r = Math.random();
+        if (r < 0.07) i.className = 'hot'; else if (r < 0.62) i.className = 'on';
+        field.appendChild(i);
+        dots.push(i);
+      }
+      if (!REDUCED) {
+        setInterval(function () {
+          var a = dots[Math.floor(Math.random() * dots.length)];
+          var b = dots[Math.floor(Math.random() * dots.length)];
+          if (a) a.className = 'hot';
+          if (b && b !== a) b.className = Math.random() < 0.5 ? 'on' : '';
+        }, 900);
+      }
+    }
+
+    if (!TOUCH) {
+      cards.forEach(function (c) {
+        c.addEventListener('mousemove', function (e) {
+          var rc = c.getBoundingClientRect();
+          c.style.setProperty('--mx', (e.clientX - rc.left) + 'px');
+          c.style.setProperty('--my', (e.clientY - rc.top) + 'px');
+        });
       });
+    }
+
+    var ready = function () { cards.forEach(function (c) { c.classList.add('is-ready'); }); };
+    if (!HAS_GSAP || !HAS_ST || REDUCED) { ready(); return; }
+
+    var st = { trigger: bento, start: 'top 82%', once: true };
+
+    gsap.from(cards, {
+      y: 70, autoAlpha: 0, scale: 0.96, duration: 1.15, ease: EASE, stagger: 0.09,
+      scrollTrigger: st,
+      onComplete: function () { gsap.set(cards, { clearProps: 'transform' }); ready(); }
     });
+
+    if (dots.length) {
+      gsap.from(dots, {
+        scale: 0, autoAlpha: 0, duration: 0.6, ease: 'back.out(2)',
+        stagger: { each: 0.0045, from: 'random' }, delay: 0.3,
+        scrollTrigger: st
+      });
+    }
+
+    gsap.from($$('.bx__ticks i', bento), {
+      scaleY: 0, duration: 0.9, ease: EASE, stagger: 0.035, delay: 0.45,
+      scrollTrigger: st
+    });
+
+    gsap.from($$('.bx__faces i', bento), {
+      x: -24, autoAlpha: 0, duration: 0.8, ease: EASE, stagger: 0.08, delay: 0.6,
+      scrollTrigger: st
+    });
+
+    var years = $('.bx--years', bento);
+    if (years) {
+      var yst = { trigger: years, start: 'top 88%', once: true };
+      gsap.from($('.bx__rail span', years), { scaleX: 0, duration: 1.8, ease: 'expo.inOut', delay: 0.3, scrollTrigger: yst });
+      gsap.from($$('.bx__pt', years), { autoAlpha: 0, y: 12, duration: 0.8, ease: EASE, stagger: 1.2, delay: 0.35, scrollTrigger: yst });
+    }
+
+    var img = $('.bx--learners img', bento);
+    if (img) {
+      gsap.fromTo(img, { yPercent: -6, scale: 1.12 }, {
+        yPercent: 6, ease: 'none',
+        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1 }
+      });
+    }
   }
 
   /* ══════════════════════════════════════════ 10 · generic reveals ══ */
@@ -1040,6 +1119,7 @@
     initMagnetic();
     initMarquees();
     initCounters();
+    initStats();
     initReveals();
     initProgrammes();
     initEdge();
