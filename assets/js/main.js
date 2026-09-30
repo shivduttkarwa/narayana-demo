@@ -120,67 +120,66 @@
   }
 
   /* ══════════════════════════════════════════════════ 03 · preloader ══ */
-  function initLoader(done) {
+  function initLoader(onReveal, onDone) {
     var loader = $('#loader');
     var numEl  = $('#loaderNum');
     var barEl  = $('#loaderBar');
 
-    if (!loader) { document.body.classList.remove('is-loading'); done(); return; }
+    var finishAll = function () {
+      document.body.classList.remove('is-loading');
+      if (loader) loader.style.display = 'none';
+      if (HAS_ST) ScrollTrigger.refresh();
+      onDone();
+    };
+
+    if (!loader) { onReveal(); finishAll(); return; }
 
     // tells the inline <head> failsafe to stand down
     loader.setAttribute('data-handled', '');
 
-    if (REDUCED || !HAS_GSAP) {
-      loader.style.display = 'none';
-      document.body.classList.remove('is-loading');
-      done();
-      return;
-    }
+    if (REDUCED || !HAS_GSAP) { onReveal(); finishAll(); return; }
 
+    var ink   = $('.loader__layer--ink', loader);
+    var gold  = $('.loader__layer--gold', loader);
+    var lines = $$('.loader__word b', loader);
     var state = { v: 0 };
     var finished = false;
 
+    gsap.from(lines, { yPercent: 110, duration: 1.1, ease: EASE, stagger: 0.1, delay: 0.2 });
+    gsap.from('.loader__top > *, .loader__foot', { autoAlpha: 0, y: 10, duration: 0.8, ease: EASE, stagger: 0.06, delay: 0.3 });
+
     var counter = gsap.to(state, {
       v: 100,
-      duration: 2.6,
-      ease: 'power1.inOut',
+      duration: 2.4,
+      ease: 'power2.inOut',
       onUpdate: function () {
-        var v = Math.round(state.v);
-        if (numEl) numEl.textContent = v;
-        if (barEl) barEl.style.width = v + '%';
+        if (numEl) numEl.textContent = Math.round(state.v);
+        if (barEl) barEl.style.transform = 'scaleX(' + (state.v / 100) + ')';
       }
     });
 
     function finish() {
       if (finished) return;
       finished = true;
-      // rush the counter to 100, then lift the curtain
-      gsap.to(counter, { progress: 1, duration: 0.5, ease: 'power2.in', onComplete: out });
+      gsap.to(counter, { progress: 1, duration: 0.45, ease: 'power2.in', onComplete: out });
     }
 
+    // hero intro fires mid-wipe so the reveal and the entrance read as one move
     function out() {
-      var tl = gsap.timeline({
-        onComplete: function () {
-          document.body.classList.remove('is-loading');
-          loader.style.display = 'none';
-          if (HAS_ST) ScrollTrigger.refresh();
-          done();
-        }
-      });
-      tl.to('.loader__inner, .loader__count, .loader__bar', {
-        autoAlpha: 0, y: -14, duration: 0.5, ease: 'power2.in', stagger: 0.04
-      })
-        .to(loader, {
-          yPercent: -100,
-          duration: 1.05,
-          ease: EASE
-        }, '-=0.15');
+      var tl = gsap.timeline({ onComplete: finishAll });
+      tl.to(lines, { yPercent: -110, duration: 0.6, ease: 'power3.in', stagger: 0.06 }, 0)
+        .to('.loader__mark, .loader__top > *, .loader__foot', { autoAlpha: 0, y: -12, duration: 0.5, ease: 'power2.in', stagger: 0.03 }, 0)
+        .to(ink, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'expo.inOut' }, 0.45)
+        .to(gold, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.1, ease: 'expo.inOut' }, 0.54)
+        .call(onReveal, null, 0.8);
     }
 
-    // wait for real load, but never hang longer than 4s
-    if (document.readyState === 'complete') gsap.delayedCall(0.9, finish);
-    else window.addEventListener('load', function () { gsap.delayedCall(0.35, finish); });
-    gsap.delayedCall(4, finish);
+    // let the counter play out even on an instant load, but never hang past 5s
+    var minDone = false, loaded = document.readyState === 'complete';
+    var tryFinish = function () { if (minDone && loaded) finish(); };
+    gsap.delayedCall(2.2, function () { minDone = true; tryFinish(); });
+    if (!loaded) window.addEventListener('load', function () { loaded = true; tryFinish(); });
+    gsap.delayedCall(5, finish);
   }
 
   /* ══════════════════════════════════════════════════ 05 · magnetic ══ */
@@ -512,8 +511,7 @@
     gsap.set(first.chars, { yPercent: 115 });
     gsap.set(first.copy, { autoAlpha: 0, y: 20 });
     if (first.stat) gsap.set(first.stat, { autoAlpha: 0, x: 16 });
-    gsap.set(first.media, { clipPath: 'inset(30% 0% 30% 0%)' });
-    gsap.set(first.img, { scale: 1.3 });
+    gsap.set(first.img, { scale: 1.28, yPercent: 8 });
     gsap.set(['.hs__count', '.hs__ui'], { autoAlpha: 0, y: 12 });
     gsap.set('.hs__rule', { scaleX: 0, transformOrigin: 'left center' });
     setActive(0);
@@ -529,13 +527,12 @@
           scrollFx();
         }
       });
-      it.to(first.media, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'expo.inOut' }, 0)
-        .to(first.img, { scale: 1, duration: 2, ease: 'expo.out' }, 0)
-        .to('.hs__rule', { scaleX: 1, duration: 1.3 }, 0.6)
-        .to(first.chars, { yPercent: 0, duration: 1.2, stagger: { each: 0.014, from: 'start' } }, 0.55)
-        .to(first.copy, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.07 }, 0.7);
-      if (first.stat) it.to(first.stat, { autoAlpha: 1, x: 0, duration: 0.9 }, 1.0);
-      it.to(['.hs__count', '.hs__ui'], { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.08 }, 1.1);
+      it.to(first.img, { scale: 1, yPercent: 0, duration: 2.2, ease: 'expo.out' }, 0)
+        .to(first.chars, { yPercent: 0, duration: 1.2, stagger: { each: 0.014, from: 'start' } }, 0.25)
+        .to(first.copy, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.07 }, 0.45)
+        .to('.hs__rule', { scaleX: 1, duration: 1.3 }, 0.4);
+      if (first.stat) it.to(first.stat, { autoAlpha: 1, x: 0, duration: 0.9 }, 0.75);
+      it.to(['.hs__count', '.hs__ui'], { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.08 }, 0.8);
     }
 
     // scroll: the composition sinks and fades as the page moves on
@@ -1072,8 +1069,7 @@
     var hero = initHeroSlider();
     initLoader(function () {
       if (hero) hero.intro();
-      build();
-    });
+    }, build);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);

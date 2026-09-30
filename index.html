@@ -41,19 +41,25 @@
 
 <!-- ══════════════════════════════════════════════════════ PRELOADER ══ -->
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <div class="loader__mark">
-      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <path class="lm-a" d="M12 52V12l40 40V12" stroke="currentColor" stroke-width="6" stroke-linecap="square"/>
-      </svg>
+  <div class="loader__layer loader__layer--gold"></div>
+  <div class="loader__layer loader__layer--ink">
+    <div class="loader__top">
+      <span>Narayana Schools</span>
+      <span>Est. 1979 · Nellore</span>
     </div>
-    <div class="loader__meta">
-      <span class="loader__word">Narayana</span>
-      <span class="loader__since">Est. 1979</span>
+    <div class="loader__inner">
+      <div class="loader__mark">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path class="lm-a" d="M12 52V12l40 40V12" stroke="currentColor" stroke-width="6" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div class="loader__word"><span><b>Every dream deserves</b></span><span><b><em>a school.</em></b></span></div>
+    </div>
+    <div class="loader__foot">
+      <div class="loader__bar"><span id="loaderBar"></span></div>
+      <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
     </div>
   </div>
-  <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
-  <div class="loader__bar"><span id="loaderBar"></span></div>
 </div>
 
 <div class="grain" aria-hidden="true"></div>
