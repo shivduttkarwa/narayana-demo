@@ -123,7 +123,6 @@
   function initLoader(onReveal, onDone) {
     var loader = $('#loader');
     var numEl  = $('#loaderNum');
-    var barEl  = $('#loaderBar');
 
     var finishAll = function () {
       document.body.classList.remove('is-loading');
@@ -139,13 +138,20 @@
 
     if (REDUCED || !HAS_GSAP) { onReveal(); finishAll(); return; }
 
-    var ink   = $('.loader__layer--ink', loader);
+    var sun   = $('.loader__sun', loader);
     var lines = $$('.loader__word b', loader);
     var state = { v: 0 };
     var finished = false;
 
     gsap.from(lines, { yPercent: 110, duration: 1.1, ease: EASE, stagger: 0.1, delay: 0.2 });
-    gsap.from('.loader__top > *, .loader__foot', { autoAlpha: 0, y: 10, duration: 0.8, ease: EASE, stagger: 0.06, delay: 0.3 });
+    gsap.from('.loader__top > *, .loader__count', { autoAlpha: 0, y: 10, duration: 0.8, ease: EASE, stagger: 0.06, delay: 0.3 });
+
+    // scrubbed by the counter, so the sun climbs with the load
+    var rise = gsap.timeline({ paused: true, defaults: { duration: 1, ease: 'none' } });
+    rise.fromTo(sun, { x: 0, y: 0, xPercent: -50, yPercent: 20 }, { yPercent: -82 }, 0)
+        .fromTo('.loader__bloom', { x: 0, y: 0, xPercent: -50, yPercent: -50, scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1 }, 0)
+        .fromTo('.loader__dawn', { y: 0, yPercent: 22, opacity: 0 }, { yPercent: 0, opacity: 1 }, 0)
+        .to('.loader__rim', { opacity: 1, duration: 0.8 }, 0.2);
 
     var counter = gsap.to(state, {
       v: 100,
@@ -153,7 +159,7 @@
       ease: 'power2.inOut',
       onUpdate: function () {
         if (numEl) numEl.textContent = Math.round(state.v);
-        if (barEl) barEl.style.transform = 'scaleX(' + (state.v / 100) + ')';
+        rise.progress(state.v / 100);
       }
     });
 
@@ -163,13 +169,13 @@
       gsap.to(counter, { progress: 1, duration: 0.45, ease: 'power2.in', onComplete: out });
     }
 
-    // hero intro fires mid-wipe so the reveal and the entrance read as one move
+    // hero intro fires as the light fades so the reveal and the entrance read as one move
     function out() {
       var tl = gsap.timeline({ onComplete: finishAll });
-      tl.to(lines, { yPercent: -110, duration: 0.55, ease: 'power3.in', stagger: 0.05 }, 0)
-        .to('.loader__mark, .loader__top > *, .loader__foot', { autoAlpha: 0, duration: 0.35, ease: 'power2.in' }, 0)
-        .to(ink, { yPercent: -100, duration: 1.2, ease: 'expo.inOut' }, 0.3)
-        .call(onReveal, null, 0.5);
+      tl.to(lines, { yPercent: -110, duration: 0.5, ease: 'power3.in', stagger: 0.05 }, 0)
+        .to('.loader__top > *, .loader__count', { autoAlpha: 0, duration: 0.35, ease: 'power2.in' }, 0)
+        .call(onReveal, null, 0.5)
+        .to(loader, { autoAlpha: 0, scale: 1.08, duration: 1.1, ease: 'power2.inOut' }, 0.35);
     }
 
     // let the counter play out even on an instant load, but never hang past 5s
