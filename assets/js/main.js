@@ -552,9 +552,16 @@
         yPercent: 22, ease: 'none',
         scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
       });
+      var content = $('.hs__content', hero);
+      // fully faded by the time the copy (sinking at 0.78× scroll) would slide under the nav
+      var fadeEnd = function () {
+        var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) * 16 || 76;
+        var top = content ? content.offsetTop : hero.offsetHeight * 0.5;
+        return '+=' + Math.max(120, (top - navH) / 0.78 * 0.85);
+      };
       gsap.to(['.hs__content', '.hs__ui', '.hs__count'], {
-        opacity: 0, y: -50, ease: 'none',
-        scrollTrigger: { trigger: hero, start: 'top top', end: '70% top', scrub: true }
+        opacity: 0, ease: 'none',
+        scrollTrigger: { trigger: hero, start: 'top top', end: fadeEnd, scrub: true, invalidateOnRefresh: true }
       });
     }
 
