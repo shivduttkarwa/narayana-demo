@@ -802,6 +802,13 @@ body.is-loading .loader{pointer-events:auto}
 .pcard:nth-child(2) .pcard__in{background:#EFF1F7}
 .pcard:nth-child(3) .pcard__in{background:var(--ink);color:#fff;border-color:rgba(255,255,255,.1)}
 .pcard:nth-child(4) .pcard__in{background:#E9EDE7}
+.prog__stack.is-stacked{display:grid}
+.is-stacked .pcard{grid-area:1 / 1;position:relative;top:auto;margin:0;display:grid}
+.is-stacked .pcard__in{position:relative}
+.is-stacked .pcard__in::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:rgb(11 15 26 / var(--dim,0));
+}
 .pcard__txt{display:grid;gap:.75rem;align-content:start}
 .pcard__idx{
   font-family:var(--f-mono);font-size:var(--t-xs);

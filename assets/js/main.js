@@ -861,41 +861,50 @@
     var cards = $$('[data-pcard]');
     if (!cards.length || !HAS_GSAP || !HAS_ST || REDUCED) return;
 
+    var stack = $('[data-prog]');
     var mm = gsap.matchMedia();
     mm.add('(min-width: 861px)', function () {
-      cards.forEach(function (card, i) {
-        var inner = $('.pcard__in', card);
-        var img   = $('.pcard__img img', card);
+      stack.classList.add('is-stacked');
 
-        // image slow-pans inside its frame
-        if (img) {
-          gsap.fromTo(img, { yPercent: -5, scale: 1.1 }, {
-            yPercent: 5, ease: 'none',
-            scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: 1 }
-          });
-        }
+      var navH = function () {
+        return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) * 16 || 76;
+      };
+      var inners = cards.map(function (c) { return $('.pcard__in', c); });
+      var imgs   = cards.map(function (c) { return $('.pcard__img img', c); });
+      var txts   = cards.map(function (c) { return $$('.pcard__txt > *', c); });
 
-        // entering card rises
-        gsap.from(inner, {
-          y: 60, autoAlpha: 0, duration: 1, ease: EASE,
-          scrollTrigger: { trigger: card, start: 'top 88%', once: true }
-        });
+      gsap.set(cards.slice(1), { y: function () { return window.innerHeight; } });
+      gsap.set(inners, { '--dim': 0, transformOrigin: '50% 0%' });
 
-        // outgoing card recedes as the next one covers it
-        if (i < cards.length - 1) {
-          gsap.to(inner, {
-            scale: 0.93,
-            autoAlpha: 0.35,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: cards[i + 1],
-              start: 'top bottom',
-              end: 'top 30%',
-              scrub: true
-            }
-          });
+      var tl = gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: {
+          trigger: stack,
+          pin: true,
+          scrub: 0.8,
+          start: function () {
+            var room = window.innerHeight - navH();
+            return stack.offsetHeight < room ? 'center center+=' + (navH() / 2) : 'top top+=' + navH();
+          },
+          end: function () { return '+=' + window.innerHeight * 0.85 * (cards.length - 1); },
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+          refreshPriority: 5
         }
       });
+
+      tl.to({}, { duration: 0.25 });
+      for (var i = 1; i < cards.length; i++) {
+        var at = 'card' + i;
+        tl.addLabel(at)
+          .to(cards[i], { y: 0, duration: 1, ease: 'power2.out' }, at)
+          .to(inners[i - 1], { scale: 0.94, '--dim': 0.45, duration: 1 }, at);
+        if (imgs[i]) tl.fromTo(imgs[i], { scale: 1.18 }, { scale: 1, duration: 1.1, ease: 'power2.out' }, at);
+        tl.from(txts[i], { y: 40, duration: 0.9, stagger: 0.05, ease: 'power2.out' }, at + '+=0.15')
+          .to({}, { duration: 0.35 });
+      }
+
+      return function () { stack.classList.remove('is-stacked'); };
     });
   }
 
